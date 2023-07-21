@@ -3,7 +3,7 @@
  * Copyright (c) Elijah Bantugan 2023
  * MIT License
  * @github https://github.com/a-riceeater/SyntaxHiglight.JS
- * @contributors TBD CONTRIBUTORS GITHUB LINK
+ * @author Elijah Bantugan
  */
 
 
@@ -93,6 +93,8 @@ class SyntaxHighlight {
                 text = text.replaceAll(/\/\/(.*)/g, `<span class="dark-token-comment">//$1</span>`);
                 text = text.replace(/\/\*([\s\S]*?)\*\//g, `<span class="dark-token-comment">/*$1*/</span>`);
                 text = text.replace(/@(\w+)/g, `<span class="dark-token-function">@$1</span>`);
+
+                text = text.replace(/\b(\w+):/g, `<span class="dark-token-name">$1:</span>`);
 
                 element.innerHTML = text;
                 element.classList.add(`${theme}-container`)
